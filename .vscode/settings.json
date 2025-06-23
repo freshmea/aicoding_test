@@ -1,7 +1,7 @@
 {
     "github.copilot.chat.codeGeneration.instructions": [
         {
-            "text": "Always add a comment: '코파일럿에 의해 만들어짐.'."
+            "text": "만들어진 코드 마지막에 '코파일럿에 의해 만들어짐.' 반드시 추가."
         }
     ],
     "github.copilot.chat.codeGeneration.useInstructionFiles": true,

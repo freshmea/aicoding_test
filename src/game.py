@@ -1,5 +1,6 @@
 import pygame
 
+from ball import Ball
 from brick import Brick
 
 
@@ -13,10 +14,14 @@ class Game:
         self.running = True
         # Brick 인스턴스 생성
         self.brick = Brick(x=270, y=190)
-        self.all_sprites = pygame.sprite.Group(self.brick) #type:ignore[no-redef]
+        self.brick_group = pygame.sprite.Group(self.brick) # type: ignore
+        # Ball 인스턴스 생성
+        self.ball = Ball(x=300, y=200)
+        self.all_sprites = pygame.sprite.Group(self.brick, self.ball) #type:ignore[no-redef]
 
     def run(self):
         clock = pygame.time.Clock()
+        screen_rect = self.screen.get_rect()
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -27,7 +32,8 @@ class Game:
                     if event.key == pygame.K_q and (event.mod & pygame.KMOD_SHIFT):
                         self.running = False
             keys = pygame.key.get_pressed()
-            self.all_sprites.update(keys)
+            self.brick.update(keys)
+            self.ball.update(self.brick_group, screen_rect)
             self.screen.fill(self.WHITE)
             self.all_sprites.draw(self.screen)
             pygame.display.flip()
