@@ -1,0 +1,13 @@
+{
+    "github.copilot.chat.codeGeneration.instructions": [
+        {
+            "text": "Always add a comment: '코파일럿에 의해 만들어짐.'."
+        }
+    ],
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+        {
+            "file": "./.github/copilot-commit-guide.md",
+        }
+    ],
+}
